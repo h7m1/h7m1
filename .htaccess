@@ -3,3 +3,13 @@ ErrorDocument 401 /tisktisk.html
 ErrorDocument 400 /badreq.html
 ErrorDocument 403 /forb.html
 ErrorDocument 500 /serv.html
+
+SetEnvIfNoCase Referer "^http://www.your-domain-name-here.com/" locally_linked=1
+SetEnvIfNoCase Referer "^http://www.your-domain-name-here.com$" locally_linked=1
+SetEnvIfNoCase Referer "^http://your-domain-name-here.com/" locally_linked=1
+SetEnvIfNoCase Referer "^http://your-domain-name-here.com$" locally_linked=1
+SetEnvIfNoCase Referer "^$" locally_linked=1
+<FilesMatch "\.(gif|png|jpe?g)$">
+  Order Allow,Deny
+  Allow from env=locally_linked
+</FilesMatch>
