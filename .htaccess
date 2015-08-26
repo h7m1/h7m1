@@ -1,0 +1,5 @@
+ErrorDocument 404 /notfound.html
+ErrorDocument 401 /tisktisk.html
+ErrorDocument 400 /badreq.html
+ErrorDocument 403 /forb.html
+ErrorDocument 500 /serv.html
